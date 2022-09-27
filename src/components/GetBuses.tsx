@@ -3,7 +3,11 @@ import { GraphQLClient, gql } from "graphql-request";
 
 const API_URL = `https://api.digitransit.fi/graphiql/hsl`;
 
-const graphQLClient = new GraphQLClient(API_URL);
+const graphQLClient = new GraphQLClient(API_URL, {
+  headers: {
+    "Content-Type": "application/graphql",
+  },
+});
 
 export function useGetBuses() {
   return useQuery("get-buses", async () => {
