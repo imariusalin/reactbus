@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import Clock from 'react-live-clock';
+import Header from './components/Header';
+import Head from './components/Head';
 import './App.css';
+import Buses from './components/Buses';
+import Location from './components/Location';
+
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+      <Header/>
+      <Head/>
+      <Location/>
+      <React.StrictMode>
+      <QueryClientProvider client={queryClient}>      
+      <Buses/>
+      </QueryClientProvider>
+      </React.StrictMode>
+      </div>
     </div>
   );
 }

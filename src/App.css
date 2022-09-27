@@ -1,38 +1,190 @@
 .App {
   text-align: center;
+  height: 100vh;
+  background-color: #D4D9DE;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.container {
+  background-color: #D4D9DE;
+  height: 100vh;
+  position: relative;
+  background: no-repeat bottom right url(../assets/images/bg.png);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 90%;
+  height:fit-content;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo {
+  width:90px;
+  height:40px;
+  background-image: url(../assets/images/logo.png);
+  flex: 50%; 
+  background-repeat:no-repeat;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.time {
+  flex: 50%;
+  font-size: 40px;
+  font-weight: bolder;
+  display: contents;
+}
+
+
+.head {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  letter-spacing: -0.2px;
+  color: #222222;
 }
 
-.App-link {
-  color: #61dafb;
+
+.location {
+  position: absolute;
+  height: 128px;
+  left: 20.56%;
+  right: 23.82%;
+  top: calc(50% - 128px/2 - 288px);
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 65px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.6px;
+  color: #222222;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buses {
+  position: absolute;
+  left: 20.56%;
+  right: 37.22%;
+  top: 31.25%;
+  bottom: 62.5%;
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 25px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-start; 
+  flex-direction: column; 
+  flex-wrap: nowrap; 
 }
+
+.bus {
+  background-color: #fff;
+  height:64px;
+  padding-left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.time {
+  font-size: 20px;
+  float: left;
+}
+
+
+.status {
+  width:5px;
+}
+
+.icon {
+  height: 24px;
+  margin-left: 12px;
+}
+ 
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  margin-left:auto;
+  margin-right: 56px;
+
+}
+
+.status_line {
+  height: 25px;
+  width: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #00AD09;
+  padding-left: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.bussInfo {
+  margin-left: 12px;
+  font-size: 16px;
+  font-family: "IBM Plex Sans";
+  font-weight: 400;
+  line-height: 24px;
+  font-style: normal;
+  color: #222222;
+}
+
+.bussInfoTime {
+  margin-left: 12px;
+  font-size: 14px;
+  font-family: "IBM Plex Mono";
+  font-weight: 500;
+  line-height: 24px;
+  font-style: normal;
+  color: #909090;
+}
+ 
+@media only screen and (max-width: 600px)  {
+  .App-header {
+    flex-direction: row;
+  }
+
+  .head {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 18px;
+  }
+  .location {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 35px;
+    font-weight: 900;
+    margin-top: 50px;
+  }
+  .buses {
+    width: 95vw;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 25px;
+    margin-top: 5px;
+    display:flex-inline;
+  }
+
+}
+
+
+
+
