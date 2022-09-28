@@ -1,37 +1,21 @@
-import { useQuery } from "react-query";
-import { GraphQLClient, gql } from "graphql-request";
+import { useQuery } from 'react-query';
+import { GraphQLClient, request } from 'graphql-request';
 
-const API_URL = `https://api.digitransit.fi/graphiql/hsl`;
+export const useGQLQuery = (key: string, query: any, variables  = {}, config = {}) => {
+  const endpoint = 'https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql';
+  const headers = {
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "digitransit-subscription-key": "3d6b877b6def4672ad17e9ad2fe0f28e",
+    }
+  }
 
-const graphQLClient = new GraphQLClient(API_URL, {
-  headers: {
-    "Content-Type": "application/graphql",
-  },
-});
+  const graphQLClient = new GraphQLClient(endpoint, headers);
 
-export function useGetBuses() {
-  return useQuery("get-buses", async () => {
-    const { getBusesList } = await graphQLClient.request(gql`
-      query {
-        {
-          stop(id: "HSL:1201110") {
-            name
-            stoptimesWithoutPatterns {
-              scheduledArrival
-              realtimeArrival
-              serviceDay
-              trip {
-                route {
-                  shortName
-                  longName
-                 
-                }
-              }
-            }
-          }
-        }
-      }
-    `);
-    return getBusesList;
-  });
-}
+  const fetchData = async () => await graphQLClient.request(query, variables);
+  
+  // const fetchData = async () => await request(endpoint, query, variables);
+
+  return useQuery(key, fetchData, config);
+};
